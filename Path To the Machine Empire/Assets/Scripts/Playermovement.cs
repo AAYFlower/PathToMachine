@@ -27,17 +27,6 @@ public class Playermovement : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         PlayerSpriteRenderer = GetComponent<SpriteRenderer>();
         facingRight = true;
-      
-        //singleton
-        if (!PlayerExist)
-        {
-            PlayerExist = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 
     // Update is called once per frame

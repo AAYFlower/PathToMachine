@@ -1654,7 +1654,7 @@ MonoBehaviour:
   Interacttext: {fileID: 1625565181}
   sceneswitcher: {fileID: 1227873268}
   cangotonextlevel: 0
-  levelindextoload: 2
+  levelindextoload: 4
 --- !u!23 &1053828778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2182,8 +2182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  invincible: 0
-
   EndElevator: {fileID: 1053828776}
 --- !u!114 &1322548214
 MonoBehaviour:
@@ -2204,6 +2202,7 @@ MonoBehaviour:
   speed: 10
   damage: 10
   knockback: 500
+  grounded: 1
 --- !u!114 &1322548215
 MonoBehaviour:
   m_ObjectHideFlags: 0

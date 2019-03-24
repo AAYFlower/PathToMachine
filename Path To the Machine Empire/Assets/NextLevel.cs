@@ -8,7 +8,7 @@ public class NextLevel : MonoBehaviour
     public GameObject sceneswitcher;
     public bool cangotonextlevel;
     LevelChanger levelchange;
-    public int levelindextoload;
+    public string levelindextoload;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(cangotonextlevel);
 
         
     }
@@ -29,7 +29,7 @@ public class NextLevel : MonoBehaviour
         if(collision.gameObject.tag == "Player" && cangotonextlevel == true)
         {
             Interacttext.SetActive(true);
-            if(Interacttext.activeInHierarchy == true && Input.GetButtonDown("Use"))
+            if(Interacttext.activeInHierarchy == true && Input.GetKeyDown(KeyCode.E))
             {
                 levelchange.FadeToLevel(levelindextoload);
             }

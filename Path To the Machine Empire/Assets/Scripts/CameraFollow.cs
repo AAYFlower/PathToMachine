@@ -15,21 +15,12 @@ public class CameraFollow : MonoBehaviour
     {
         //offset = transform.position - player.transform.position;
 
-        DontDestroyOnLoad(transform.gameObject);
-        if (!CameraExist)
-        {
-            CameraExist = true;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
 
     }
     void FixedUpdate()
     {
-        playerxpos = new Vector3(followTarget.position.x, /*followTarget.position.y*/0, 0);
+        playerxpos = new Vector3(followTarget.position.x, followTarget.position.y, 0);
 
         Vector3 desiredposition = playerxpos + offset;
         Vector3 smoothedposition = Vector3.Lerp(transform.position, desiredposition, smoothspeed * Time.deltaTime);
