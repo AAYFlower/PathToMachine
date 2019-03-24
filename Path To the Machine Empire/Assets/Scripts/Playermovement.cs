@@ -18,7 +18,7 @@ public class Playermovement : MonoBehaviour
     private bool grounded;
     private SpriteRenderer PlayerSpriteRenderer;
     private Vector2 movement;
-    private Vector2 dashvelocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class Playermovement : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         PlayerSpriteRenderer = GetComponent<SpriteRenderer>();
         facingRight = true;
-
+      
         //singleton
         if (!PlayerExist)
         {
@@ -43,17 +43,30 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        inputHorizontal = Input.GetAxis("Horizontal");
-        movement = new Vector2(inputHorizontal * speed, rb.velocity.y);
+       
+            inputHorizontal = Input.GetAxis("Horizontal");
+            movement = new Vector2(inputHorizontal * speed, rb.velocity.y);
         
         rb.velocity = movement;
-        dashvelocity = new Vector2(rb.velocity.x, 0);
 
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Dash();
+            if (inputHorizontal <= 0.05f)
+            {
+                Debug.Log("teleportleft");
+                rb.velocity = new Vector2(-dashDistance, rb.velocity.y);
+
+            }
+
+            if (inputHorizontal >= 0.05f)
+            {
+                Debug.Log("teleportRight");
+                rb.velocity = new Vector2(dashDistance, rb.velocity.y);
+               
+            }
         }
+
 
         if (Input.GetKeyDown("space") && grounded == true)
         {
@@ -101,7 +114,8 @@ public class Playermovement : MonoBehaviour
     }
     void Dash()
     {
-        rb.MovePosition(dashvelocity * dashDistance);
+        
+       
     }
 
     private void OnCollisionEnter2D(Collision2D other)
