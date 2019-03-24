@@ -1884,6 +1884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFollowing: 0
+  isJumping: 0
+  jumpRate: 1
+  jumpPower: 100
   speed: 10
   damage: 10
   knockback: 500
@@ -1911,7 +1914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322548208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 196367972f822714caf8995df0507798, type: 3}
   m_Name: 
@@ -1924,7 +1927,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322548208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b0e7a5a226b78247a559e1495be0826, type: 3}
   m_Name: 

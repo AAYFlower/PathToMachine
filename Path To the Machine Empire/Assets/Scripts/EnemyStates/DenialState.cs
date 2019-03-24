@@ -76,6 +76,7 @@ public class DenialState : MonoBehaviour
 				currentPhase = DenialPhases.phase2;
 				chase.isFollowing = true;
 				chase.speed = fastWalk;
+				chase.isJumping = true;
 				fire.canShoot = true;
 				fire.fireRate = fastFireRate;
 				fire.damage = fastDamage;
