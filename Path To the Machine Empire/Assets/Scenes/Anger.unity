@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 144279785}
   - component: {fileID: 144279787}
   - component: {fileID: 144279786}
+  - component: {fileID: 144279788}
   m_Layer: 5
   m_Name: Dialogue Box
   m_TagString: Untagged
@@ -189,6 +190,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144279784}
   m_CullTransparentMesh: 0
+--- !u!95 &144279788
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144279784}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0b20aebadd20c8478a7a41b2fc6ece3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &168493788
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +520,8 @@ MonoBehaviour:
   dialogue:
     name: Anger
     sentences:
-    - "God is dead\t"
-    - Key is lost
+    - Subscribe
+    - To Marcus
 --- !u!1 &461592424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameText: {fileID: 1284612794}
   DialogueText: {fileID: 592227194}
+  animator: {fileID: 144279788}
 --- !u!4 &982143147
 Transform:
   m_ObjectHideFlags: 0
@@ -2152,7 +2173,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue >>>
+  m_Text: Next >>>
 --- !u!222 &1409647525
 CanvasRenderer:
   m_ObjectHideFlags: 0

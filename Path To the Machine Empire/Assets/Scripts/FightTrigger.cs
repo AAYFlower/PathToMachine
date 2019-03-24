@@ -26,6 +26,7 @@ public class FightTrigger : MonoBehaviour
         {
             startFight = true;
             trigger.TriggerDialogue();
+            gameObject.SetActive(false);
         }
     }
 
