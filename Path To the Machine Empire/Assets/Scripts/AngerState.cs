@@ -5,21 +5,25 @@ using UnityEngine;
 public class AngerState : MonoBehaviour
 {
     public GameObject fighttrigger;
-    bool phase1;
-    bool phase2;
+	private enum AngerPhases
+	{
+		start,
+		phase1,
+		phase1trans,
+		phase2
+	};
+	private AngerPhases currentPhase = AngerPhases.start;
     ChaseBehavior chase;
     FireBehavior fire;
     bool startfight;
-    Enemy health;
+    Enemy enemy;
     float currenthealth;
     // Start is called before the first frame update
     void Start()
     {
-        phase1 = false;
-        phase2 = false;
         chase = GetComponent<ChaseBehavior>();
         fire = GetComponent<FireBehavior>();
-        health = GetComponent<Enemy>();
+		enemy = GetComponent<Enemy>();
         
     }
 
@@ -27,28 +31,38 @@ public class AngerState : MonoBehaviour
     void Update()
     {
         startfight = fighttrigger.GetComponent<FightTrigger>().startFight;
-        currenthealth = health.health;
+        currenthealth = enemy.health;
 
-        Debug.Log(startfight);
-        if (startfight == true)
-        {
-            phase1 = true;
-        }
-
-        if(phase1 == true)
-        {
-            fire.enabled = true;
-        }
-
-        if(phase2 == true)
-        {
-            chase.enabled = true;
-        }
-
-        if(currenthealth <= 50f)
-        {
-            phase2 = true;
-        }
-        
+		switch(currentPhase)
+		{
+			case AngerPhases.start:
+				if(startfight)
+				{
+					currentPhase = AngerPhases.phase1;
+					fire.canShoot = true;
+				}
+				break;
+			case AngerPhases.phase1:
+				if (currenthealth <= 50f)
+				{
+					currentPhase = AngerPhases.phase1trans;
+				}
+				break;
+			case AngerPhases.phase1trans:
+				//just in case
+				fire.canShoot = false;
+				currentPhase = AngerPhases.phase2;
+				break;
+			case AngerPhases.phase2:
+				if(!fire.canShoot)
+				{
+					fire.canShoot = true;
+				}
+				if (!chase.isFollowing)
+				{
+					chase.isFollowing = true;
+				}
+				break;
+		}        
     }
 }

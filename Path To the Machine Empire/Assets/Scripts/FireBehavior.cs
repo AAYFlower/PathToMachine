@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireBehavior : MonoBehaviour
 {
     public GameObject bullet;
+	public bool canShoot = false;
     public Transform firepoint;
      public float fireRate;
     float nextFire;
@@ -18,8 +19,11 @@ public class FireBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckShoot();
-    }
+		if(canShoot)
+		{
+			CheckShoot();
+		}
+	}
     void CheckShoot()
     {
         if(Time.time > nextFire)

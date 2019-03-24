@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ChaseBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+	// Start is called before the first frame update
+	public bool isFollowing = false;
     public float speed;
     private Transform target;
     public int damage;
@@ -20,8 +21,11 @@ public class ChaseBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-    }
+		if(isFollowing)
+		{
+			transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+		}
+	}
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
