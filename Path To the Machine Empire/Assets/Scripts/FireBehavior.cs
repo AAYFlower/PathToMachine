@@ -8,6 +8,7 @@ public class FireBehavior : MonoBehaviour
 	public bool canShoot = false;
     public Transform firepoint;
      public float fireRate;
+	public int damage = 2;
     float nextFire;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,12 @@ public class FireBehavior : MonoBehaviour
     {
         if(Time.time > nextFire)
         {
-            Instantiate(bullet, firepoint.position,firepoint.rotation);
+            GameObject firedBullet = Instantiate(bullet, firepoint.position,firepoint.rotation);
+			EnemyBullet newBullet = firedBullet.GetComponent<EnemyBullet>();
+			if(newBullet != null)
+			{
+				newBullet.damage = damage;
+			}
             nextFire = Time.time + fireRate;
         }
     }

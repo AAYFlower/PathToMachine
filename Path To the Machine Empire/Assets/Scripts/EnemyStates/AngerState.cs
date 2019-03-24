@@ -40,6 +40,7 @@ public class AngerState : MonoBehaviour
 				{
 					currentPhase = AngerPhases.phase1;
 					fire.canShoot = true;
+					fire.damage = 2;
 				}
 				break;
 			case AngerPhases.phase1:
@@ -50,7 +51,8 @@ public class AngerState : MonoBehaviour
 				break;
 			case AngerPhases.phase1trans:
 				//just in case
-				fire.canShoot = false;
+				//fire.canShoot = false;
+				//enemy.invincible = true;
 				currentPhase = AngerPhases.phase2;
 				break;
 			case AngerPhases.phase2:

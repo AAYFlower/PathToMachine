@@ -1739,6 +1739,7 @@ GameObject:
   - component: {fileID: 1322548213}
   - component: {fileID: 1322548215}
   - component: {fileID: 1322548216}
+  - component: {fileID: 1322548217}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1869,6 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  invincible: 0
 --- !u!114 &1322548214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,11 +1878,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322548208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10f18c831c2091a4e8078377c05e773e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFollowing: 0
   speed: 10
   damage: 10
   knockback: 500
@@ -1891,14 +1894,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322548208}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4473bca04cc48b64f88725bd648b1361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1111120880409307699, guid: b87d1a473a1dab54396da7a007eb0d5d, type: 3}
+  canShoot: 0
   firepoint: {fileID: 986019167}
   fireRate: 2
+  damage: 40
 --- !u!114 &1322548216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1917,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fighttrigger: {fileID: 375802293}
+--- !u!114 &1322548217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322548208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0e7a5a226b78247a559e1495be0826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighttrigger: {fileID: 375802293}
+  slowWalk: 6
+  slowFireRate: 2.5
+  slowDamage: 2
+  fastWalk: 20
+  fastFireRate: 0.3
+  fastDamage: 5
+  phase1DoneHealth: 0.5
+  slowBullet: {fileID: 1111120880409307699, guid: b87d1a473a1dab54396da7a007eb0d5d,
+    type: 3}
+  fastBullet: {fileID: 1111120880409307699, guid: 35681dd1044410f4d8537556dfabac84,
+    type: 3}
+  currentPhase: 0
 --- !u!1 &1358863736
 GameObject:
   m_ObjectHideFlags: 0

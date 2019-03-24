@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	public int health = 100;
+	public bool invincible = false;
 	private Transform Player;
 
 	// public GameObject deathEffect;
@@ -17,11 +18,14 @@ public class Enemy : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-		health -= damage;
-
-		if (health <= 0)
+		if(!invincible)
 		{
-			Die();
+			health -= damage;
+
+			if (health <= 0)
+			{
+				Die();
+			}
 		}
 	}
 
